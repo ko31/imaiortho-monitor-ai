@@ -1,0 +1,16 @@
+# MonitorAI
+
+MonitorAIは、矯正治療における口腔内写真を高い規格性で収集するためのiPhone専用撮影アプリです。
+本プロジェクトの最終目的は、
+アライナー適合判定
+歯牙移動予測
+治療進行評価
+などを行うAI開発のための高品質な学習データセットを構築することです。
+MonitorAI自体は診断やAI判定を行いません。
+MonitorAIの役割は、
+「高品質で規格化された口腔内写真を収集すること」
+に特化します。
+
+![](https://ko31.github.io/imaiortho-monitor-ai/docs/image.png)
+[![](https://ko31.github.io/imaiortho-monitor-ai/docs/image.png)](https://ko31.github.io/furigoma/)
+
