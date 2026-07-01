@@ -116,6 +116,15 @@ MonitorAI は矯正治療向け iPhone 専用の口腔内撮影アプリ。
 | Preview Zoom | 2.5x / 3.0x / 4.0x（プレビューのみ） |
 | 保存画像 Zoom | 常に 1.0x |
 
+### カメラプレビュー回転の実装注意点
+
+センサーはデフォルトで Portrait 方向に出力するため、Landscape 表示には以下の両方に `videoRotationAngle = 0` を設定する必要がある（iOS 17+ API）：
+
+- `photoOutput.connection(with: .video)?.videoRotationAngle = 0`
+- `previewLayer.connection?.videoRotationAngle = 0`
+
+どちらか一方でも欠けると、プレビューまたは撮影画像が縦向きになる。
+
 ### Preview Zoom の実装注意点
 
 `AVCaptureDevice.videoZoomFactor` はプレビューと撮影の両方に影響する。
@@ -126,7 +135,36 @@ MonitorAI は矯正治療向け iPhone 専用の口腔内撮影アプリ。
 
 ---
 
-## 8. ワークフロー概要
+## 8. 画面遷移フロー
+
+### 現在実装済みの画面遷移
+
+> ⚠️ TOP画面・ユーザー情報入力画面は仮実装（内容未確定）
+
+```
+1. TOP画面（仮）
+   └─ 「次へ」ボタン
+        │
+        ▼
+2. ユーザー情報入力（仮）
+   └─ 「次へ」ボタン
+        │
+        ▼
+3. カメラ画面（Phase 02 実装済み）
+   ├─ カメラプレビュー（Landscape）
+   ├─ 3×3 グリッド
+   ├─ 中央マーカー
+   └─ ズームセレクター（2.5x / 3.0x / 4.0x）
+```
+
+### 将来の画面遷移（Phase 03 以降・未実装）
+
+```
+Launch → TOP → ユーザー情報入力 → Position Calibration
+→ 11-Step Capture Workflow → Review Screen → Upload → Completion
+```
+
+## 8b. ワークフロー概要
 
 ```
 Launch → Authentication → Patient Selection → Position Calibration
