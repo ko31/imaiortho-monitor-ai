@@ -11,6 +11,5 @@ MonitorAIの役割は、
 「高品質で規格化された口腔内写真を収集すること」
 に特化します。
 
-![](https://ko31.github.io/imaiortho-monitor-ai/docs/image.png)
-[![](https://ko31.github.io/imaiortho-monitor-ai/docs/image.png)](https://ko31.github.io/furigoma/)
+![](docs/image.png)
 
